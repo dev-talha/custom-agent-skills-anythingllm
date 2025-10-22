@@ -1,0 +1,41 @@
+{
+  "active": true,
+  "hubId": "freship-availability",
+  "name": "Fresh IP Availability Skill",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "Check availability of fresh residential IPs by location and ISP (no counts).",
+  "author": "YourNameOrTeam",
+  "author_url": "https://your-website.example.com",
+  "setup_args": {
+    "apiUrl": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "placeholder": "https://your-api.endpoint/locations?filter=residential&channel_id=2",
+        "hint": "Enter the upstream API URL for fresh IP availability."
+      },
+      "value": "https://your-api.endpoint/api/locations?filter=residential&channel_id=2"
+    }
+  },
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "query": {
+        "description": "The natural question from user (optional)",
+        "type": "string"
+      }
+    }
+  },
+  "examples": [
+    {
+      "prompt": "Fresh IP available?",
+      "call": "{\"query\": \"Fresh IP available?\"}"
+    },
+    {
+      "prompt": "Which location and ISP have fresh IPs?",
+      "call": "{\"query\": \"Which location and ISP have fresh IPs?\"}"
+    }
+  ]
+}
